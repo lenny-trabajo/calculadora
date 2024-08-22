@@ -26,7 +26,7 @@ function clicks(event){
     if(event.target && event.target.id=='por')operacion('*');
     if(event.target && event.target.id=='dividir')operacion('/');
     if(event.target && event.target.id=='igual')igual();
-    if(event.target && event.target.id=='borrraruno')borraruno("DEL");
+    if(event.target && event.target.id=='borraruno')borraruno("DEL");
     if(event.target && event.target.id=='borrar')borrar("AC");
     if(event.target && event.target.id=='punto')punto(".");
 
@@ -97,15 +97,28 @@ function igual() {
 }
 
 function punto() {
-    let pantalla = document.getElementById('scream').textContent;
+    let pantalla ='';
+    pantalla= document.getElementById('scream').textContent;
     if (!pantalla.includes('.')) {
         document.getElementById('scream').textContent += '.';
     }
 }
 
 function borraruno() {
-    let pantalla = document.getElementById('scream').textContent;
-    document.getElementById('scream').textContent = pantalla;
+    let pantallauno = document.getElementById('scream').textContent;
+    console.log(pantallauno);
+    let pantallafinal='';
+    for (let i = 0; i < pantallauno; i++){
+        if(i!=pantallauno.length-1){
+            pantallafinal+=pantallauno[i];
+        }else{
+            document.getElementById('scream').textContent = pantallafinal;
+        }
+       
+    }
+    
+    
+
 }
 
 function borrar() {
